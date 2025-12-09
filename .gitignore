@@ -12,6 +12,7 @@
 /app/build
 /docs
 /captures
+release_key
 .externalNativeBuild
 .cxx
 local.properties

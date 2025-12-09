@@ -52,7 +52,7 @@ import kotlin.math.ceil
 @Composable
 fun OptionButtons(
     modifier: Modifier = Modifier,
-    background:Color = ContainerColor2,
+    background: Color = ContainerColor2,
     values: List<String>,
     selectedIndex: Int = -1,
     onSelectedIndex: (Int) -> Unit
@@ -70,9 +70,12 @@ fun OptionButtons(
                 Modifier
                     .fillMaxHeight()
                     .weight(1f)
-                    .clickable(interactionSource = MutableInteractionSource()) {
-                        onSelectedIndex(i)
-                    },
+                    .clickable(
+                        interactionSource = MutableInteractionSource(),
+                        indication = null,
+                        onClick = {
+                            onSelectedIndex(i)
+                        }),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
