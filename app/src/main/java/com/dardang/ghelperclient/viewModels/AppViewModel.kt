@@ -19,6 +19,7 @@ import com.dardang.ghelperclient.service.GPU
 import com.dardang.ghelperclient.service.GpuMode
 import com.dardang.ghelperclient.service.IService
 import com.dardang.ghelperclient.service.MODE_GPU_STANDARD
+import com.dardang.ghelperclient.service.MockService
 import com.dardang.ghelperclient.service.Mode
 import com.dardang.ghelperclient.service.PERFORMANCE_MODE_BALANCED
 import com.dardang.ghelperclient.service.STATE_CONNECTED
@@ -184,7 +185,7 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
             service.disconnect()
         }
 
-        if (mode == 0) {
+        /*if (mode == 0) {
             connectionEnabled.mutable.value =
                 (application.getSystemService(Context.WIFI_SERVICE) as WifiManager).isWifiEnabled
 
@@ -195,7 +196,9 @@ class AppViewModel(app: Application) : AndroidViewModel(app) {
                 (application.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager).adapter.isEnabled
 
             service = BLEService(application)
-        }
+        }*/
+        service = MockService(application)
+        connectionEnabled.mutable.value = true
 
         service.sensorListener = object : IService.IReadListener {
 
